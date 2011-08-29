@@ -13,14 +13,18 @@ interface CanFight{
 	void fly();
 	void fight();
 }
-public class Adventure implements CanFly, CanSwim, CanFight {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+interface AllInOne extends CanFly, CanSwim, CanFight{
+	
+}
+
+class Realization implements AllInOne{
+
+	
+	@Override
+	public void swim() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -30,15 +34,21 @@ public class Adventure implements CanFly, CanSwim, CanFight {
 	}
 
 	@Override
-	public void swim() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void fly() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+}
+public class Adventure extends Realization {
 
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
 }
