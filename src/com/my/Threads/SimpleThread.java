@@ -36,10 +36,17 @@ public class SimpleThread {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ExecutorService exec = Executors.newCachedThreadPool();
+		/*ExecutorService exec = Executors.newCachedThreadPool();
 		for (int i = 0; i < 6; i++)
 			exec.execute(new MyRunner());
 		exec.shutdown();
+		*/
+		ExecutorService exec = Executors.newFixedThreadPool(5);
+
+		for (int i = 0; i < 6; i++)
+			exec.execute(new MyRunner());
+		exec.shutdown();
+		
 	}
 
 }
