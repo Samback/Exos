@@ -32,7 +32,9 @@ public class DeamonsStart {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		ExecutorService exec = Executors.newCachedThreadPool(new DaemonThreadFactory());
+		
 		for(int i = 0; i < 6; i++)
 			exec.execute(new DeamonsFactorys());
 		System.out.println("Now deamons are free!!!!1");	
