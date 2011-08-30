@@ -47,6 +47,8 @@ public class Adventure extends Realization {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Object	b= new Object();
+		
 
 	}
 
