@@ -3,6 +3,8 @@ package com.my.Threads;
 import java.io.IOException;
 import java.io.PipedReader;
 import java.io.PipedWriter;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 class Sender implements Runnable {
@@ -37,7 +39,10 @@ class Sender implements Runnable {
 
 class Reciver implements Runnable{
 
-	private PipedReader in = new PipedReader();
+	private PipedReader in ;
+	public Reciver (Sender sender ) throws IOException{
+		in = new PipedReader(sender.getPipedWrter());
+	}
 	@Override
 	public void run() {
 		try{
@@ -62,8 +67,17 @@ public class ReadWriteBetweenThreads {
 
 	/**
 	 * @param args
+	 * @throws InterruptedException 
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException, IOException {
+		ExecutorService exec = Executors.newCachedThreadPool();
+		Sender sender = new Sender ();
+		Reciver reciver = new Reciver(sender);
+		exec.execute(sender);
+		exec.execute(reciver);
+		TimeUnit.SECONDS.sleep(4);
+		exec.shutdownNow();
 
 	}
 
