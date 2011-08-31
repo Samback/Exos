@@ -32,6 +32,7 @@ public class SimpleCollection {
 		
 		LinkedHashSet<Integer> lhs = new LinkedHashSet<Integer>(Arrays.asList(a));
 		System.out.println("linkedHashSet"+"\n"+lhs);
+	
 
 	}
 
