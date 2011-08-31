@@ -11,7 +11,7 @@ public class DeadLockPhilosophers {
 	 * @throws InterruptedException 
 	 */
 	public static void main(String[] args) throws InterruptedException {
-		int ponder = 1;
+		int ponder = 10;
 		int size = 5;
 		ExecutorService exec = Executors.newCachedThreadPool();
 		Chopstik [] sticks = new Chopstik[size];
