@@ -30,6 +30,7 @@ public class Philosopher implements Runnable {
 	@Override
 	public void run() {
 		try{
+			
 			while(!Thread.interrupted()){
 				System.out.println(this + " thinking");
 				//takes right 
@@ -39,6 +40,12 @@ public class Philosopher implements Runnable {
 				//takes left
 				System.out.println(this + " take left");
 				left.take();
+				
+				System.out.println(this + " drop left");
+				left.drop();
+				System.out.println(this + " drop right");
+				right.drop();
+				
 			}
 		}catch (InterruptedException e) {
 			System.out.println("exit interupted" + this);
