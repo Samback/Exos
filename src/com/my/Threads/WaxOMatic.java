@@ -63,6 +63,7 @@ class WaxOFF implements Runnable{
 	@Override
 	public void run() {
 		try{
+		
 			while(!Thread.interrupted())
 			{
 				car.waitForWaxing();
@@ -81,12 +82,13 @@ class WaxOFF implements Runnable{
 public class WaxOMatic{
 	public static void main(String[] args) throws Exception {
 		Car car = new Car();
+		
 		ExecutorService exec = Executors.newCachedThreadPool();
 		exec.execute(new WaxOn(car));
 		exec.execute(new WaxOFF(car));
 	
-		
 		exec.shutdown();
+
 		
 	}
 }
